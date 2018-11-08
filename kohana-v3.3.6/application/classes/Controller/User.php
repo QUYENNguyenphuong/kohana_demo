@@ -29,7 +29,12 @@ class Controller_User extends Controller{
     {
         $id = $this->request->param('id');
         $user = ORM::factory('User', $id);
-        if (isset($user)) {
+        if ( ! $user->loaded())
+        {
+            throw HTTP_Exception::factory(404, 'User not found!');
+        }
+        else
+        {
             if(isset($_POST['btn_update']))
             {
                 $user->name = $_POST['username'];
@@ -38,13 +43,6 @@ class Controller_User extends Controller{
             }
             $view = View::factory('User/Update')->set('user', $user);
             $this->response->body($view);
-        }
-        else
-        {
-            if ( ! $user->loaded())
-            {
-                throw HTTP_Exception::factory(404, 'User not found!');
-            }
         }
     }
 }
