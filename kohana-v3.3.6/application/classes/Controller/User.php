@@ -1,17 +1,10 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Q
- * Date: 11/8/2018
- * Time: 3:08 AM
- */
-
-class Controller_User extends Controller{
+<?php defined('SYSPATH') or die('No direct script access.');
+class Controller_User extends Controller_Base {
     public function action_index()
     {
         $users = ORM::factory('User')->find_all();
         $view = View::factory('User/Index')->set('users', $users);
-        $this->response->body($view);
+        $this->template->content = $view;
     }
     public function action_create()
     {
@@ -23,7 +16,7 @@ class Controller_User extends Controller{
             $user->save();
         }
         $view = View::factory('User/Create');
-        $this->response->body($view);
+        $this->template->content = $view;
     }
     public function action_update()
     {
@@ -42,7 +35,7 @@ class Controller_User extends Controller{
                 $user->save();
             }
             $view = View::factory('User/Update')->set('user', $user);
-            $this->response->body($view);
+            $this->template->content = $view;
         }
     }
 }

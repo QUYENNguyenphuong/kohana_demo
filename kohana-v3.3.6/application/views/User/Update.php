@@ -1,7 +1,7 @@
 <p>Update User </p>
 <hr>
 <form method="post" action="">
-    <lable>User name: </lable>
+    <label>User name: </label>
     <input type="text" name="username" value="<?= $user->name?>" >
     <br>
     <label>Email </label>
