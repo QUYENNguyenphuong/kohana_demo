@@ -1,4 +1,4 @@
-<p>Update User </p>
+<p> Welcome, <?= $username ?> </p>
 <hr>
 <form method="post" action="">
     <label>User name: </label>

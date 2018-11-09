@@ -3,7 +3,9 @@ class Controller_User extends Controller_Base {
     public function action_index()
     {
         $users = ORM::factory('User')->find_all();
-        $view = View::factory('User/Index')->set('users', $users);
+        $data = array();
+        $data['sitename'] = "USER LIST";
+        $view = View::factory('User/Index', $data )->set('users', $users);
         $this->template->content = $view;
     }
     public function action_create()
@@ -34,7 +36,11 @@ class Controller_User extends Controller_Base {
                 $user->email = $_POST['email'];
                 $user->save();
             }
-            $view = View::factory('User/Update')->set('user', $user);
+            if(isset($user->name))
+            {
+                $data['username'] = $user->name;
+            }
+            $view = View::factory('User/Update', $data)->set('user', $user);
             $this->template->content = $view;
         }
     }
