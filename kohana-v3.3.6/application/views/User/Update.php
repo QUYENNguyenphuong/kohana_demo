@@ -1,6 +1,6 @@
 <p> Welcome, <?= $username ?> </p>
 <hr>
-<form method="post" action="<?php echo URL::site(Route::get('default')->uri(array('controller'=>'user','action'=>'create','id'=>$user->id))) ?>">
+<form method="post" action="<?php echo URL::site(Route::get('default')->uri(array('controller'=>'user','action'=>'update','id'=>$user->id))) ?>">
     <label>User name: </label>
     <input type="text" name="username" value="<?= $user->name?>" >
     <br>
