@@ -25,10 +25,11 @@ class Controller_User extends Controller_Base {
             else
             {
                 $user->save();
+
             }
+            $view = View::factory('User/Create', $error);
+            $this->template->content = $view;
         }
-        $view = View::factory('User/Create', $error);
-        $this->template->content = $view;
     }
     public function action_update()
     {

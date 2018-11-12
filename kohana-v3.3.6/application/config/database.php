@@ -7,7 +7,7 @@ return array
             'hostname'   => 'localhost',
             'database'   => 'begin_kohana',
             'username'   => 'root',
-            'password'   => FALSE,
+            'password'   => 'root',
             'persistent' => FALSE,
             'ssl'        => NULL,
         ),
