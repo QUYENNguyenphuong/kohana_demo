@@ -37,7 +37,7 @@ class Controller_User extends Controller_Base {
         $user = ORM::factory('User', $id);
         if ( ! $user->loaded())
         {
-            throw HTTP_Exception::factory(404, 'User not found!');
+          throw HTTP_Exception::factory(404, 'User not found!');
         }
         else
         {

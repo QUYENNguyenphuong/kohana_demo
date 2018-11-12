@@ -1,6 +1,6 @@
 <p> Create new user </p>
 <br>
-<form method="post" action="">
+<form method="post" action="<?php echo URL::site(Route::get('default')->uri(array('controller'=>'user','action'=>'index'))) ?>">
 <lable>User name: </lable>
 <input type="text" name="username" >
 <span class="text-danger"> <?= isset($name) ? $name : '' ?> </span>
