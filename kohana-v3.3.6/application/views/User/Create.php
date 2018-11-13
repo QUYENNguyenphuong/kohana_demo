@@ -1,13 +1,27 @@
 <p> Create new user </p>
 <br>
-<form method="post" action="<?php echo URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'index'))) ?>">
+<form method="post" action="<?php echo URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create'))) ?>">
 <lable>User name: </lable>
 <input type="text" name="username" >
-<span class="text-danger"> <?= isset($name) ? $name : '' ?> </span>
+<?php echo isset($errors['username']) ?  $errors['username'] : '' ?>
 <br>
-<label>Email </label>
+<label>Email: </label>
 <input type="text" name="email" >
-<span class="text-danger"> <?= isset($email) ? $email : '' ?> </span>
+<?php echo isset($errors['email']) ?  $errors['email'] : '' ?>
+<br>
+<label>Phone Number: </label>
+<input type="text" name="phonenumber" >
+<?php echo isset($errors['phonenumber']) ?  $errors['phonenumber'] : '' ?>
+<br>
+<label>Bithday: </label>
+<input type="date" name="date_birthday" >
+<br>
+<label>Hobby: </label>
+<select name="hobby" >
+    <?php foreach($hobbys as $key => $item): ?>
+            <option name="<?= $key?>" ><?= $item ?></option>
+        <?php endforeach; ?>
+</select>
 <br>
 <input type="submit" name="btn_create" value="Create">
 </form>

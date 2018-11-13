@@ -29,3 +29,8 @@ CREATE TABLE `user`  (
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+ALTER TABLE `user`
+  ADD COLUMN `phonenumber` varchar(100) NULL DEFAULT NULL,
+  ADD COLUMN `birthday` DATE NULL DEFAULT NULL,
+  ADD COLUMN `hobby` varchar(100) NULL DEFAULT NULL;

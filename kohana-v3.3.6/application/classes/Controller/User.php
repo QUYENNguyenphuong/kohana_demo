@@ -2,28 +2,34 @@
 class Controller_User extends Controller_Base {
     public function action_index()
     {
-        if(isset($_POST['btn_create']))
-        {
-            $user = ORM::factory('User');
-            $user->name = $_POST['username'];
-            $user->email = $_POST['email'];
-            if(!empty($user->name) and !empty($user->email))
-            {
-                $user->save();
-            }
-            else
-            {
-                throw HTTP_Exception::factory(404, 'User information must provided!');
-            }
-        }
         $users = ORM::factory('User')->find_all();
         $view = View::factory('User/Index')->set('users', $users);
         $this->template->content = $view;
     }
     public function action_create()
     {
-            $view = View::factory('User/Create');
-            $this->template->content = $view;
+        $user = ORM::factory('User');
+        $validation = Validation::factory($_POST)
+                ->rule('username', 'not_empty')
+                ->rule('email', 'not_empty')->rule('email', 'email')
+                ->rule('phonenumber', 'not_empty');
+        if (isset($_POST['btn_create']))
+        {
+            $user->name = $_POST['username'];
+            $user->email = $_POST['email'];
+            $user->phonenumber = $_POST['phonenumber'];
+            $user->birthday = $_POST['date_birthday'];
+            $user->hobby = $_POST['hobby'];
+            if ($validation->check())
+            {
+                $user->save();
+            }
+        }
+        $errors = $validation->errors('User');
+        $hobbys = Kohana::$config->load('setting.hobby');
+        $view = View::factory('User/Create')
+            ->set('hobbys', $hobbys)->set('errors', $errors);
+        $this->template->content = $view;
     }
     public function action_update()
     {
