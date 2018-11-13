@@ -28,7 +28,8 @@ class Controller_User extends Controller_Base {
         $errors = $validation->errors('User');
         $hobbys = Kohana::$config->load('setting.hobby');
         $view = View::factory('User/Create')
-            ->set('hobbys', $hobbys)->set('errors', $errors);
+            ->set('hobbys', $hobbys)
+            ->set('errors', $errors);
         $this->template->content = $view;
     }
     public function action_update()
