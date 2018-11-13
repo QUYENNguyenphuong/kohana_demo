@@ -47,13 +47,17 @@ class Controller_User extends Controller_Base {
             {
                 $user->name = $_POST['username'];
                 $user->email = $_POST['email'];
+                $user->phonenumber = $_POST['phonenumber'];
+                $user->birthday = $_POST['date_birthday'];
+                $user->hobby = $_POST['hobby'];
                 $user->save();
             }
             if(isset($user->name))
             {
                 $data['username'] = $user->name;
             }
-            $view = View::factory('User/Update', $data)->set('user', $user);
+            $hobbys = Kohana::$config->load('setting.hobby');
+            $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbys', $hobbys);
             $this->template->content = $view;
         }
     }
