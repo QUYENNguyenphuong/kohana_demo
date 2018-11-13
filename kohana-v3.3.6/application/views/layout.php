@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="<?= $lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,11 @@
     <title><?= $title; ?></title>
 </head>
 <body>
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'index', 'language'=>'vi'))) ?>" >Tiếng Việt</a>
+<br>
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'index', 'language'=>'en'))) ?>" >Tiếng Anh</a>
+<hr>
+<br>
 <?= $content->render(); ?>
 </body>
 </html>

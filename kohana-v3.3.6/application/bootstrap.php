@@ -144,25 +144,22 @@ Cookie::$salt = 'foobar';
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('user', 'user(-<action>(-<id>))',
+Route::set('user', '(<language>(/user(-<action>(-<id>))))',
     array(
-        'action'=>'create|update',
+        'language'=>'vi|en',
+        'action'=>'index|create|update',
     ))
     ->defaults(array(
+        'language' =>'en',
         'controller' => 'user',
         'action' => 'index',
     ));
-Route::set('default', '(<controller>(/<action>(<id>)))')
+Route::set('default', '(<language>(/<controller>(/<action>(<id>))))',
+	array(
+	  'language' => 'vi|en',
+    ))
 	->defaults(array(
+        'language'  => 'en',
 		'controller' => 'welcome',
 		'action'     => 'index',
 	));
-//Route::set('feeds', '<user_id>(/<action>).<format>',
-//    array(
-//        'user_id' => '\d+',
-//        'format' => '(rss|atom|json)',
-//    ))
-//    ->defaults(array(
-//        'controller' => 'Feeds',
-//        'action' => 'status',
-//    ));

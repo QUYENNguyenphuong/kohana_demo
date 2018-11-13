@@ -25,12 +25,27 @@ class Controller_User extends Controller_Base {
                 $user->save();
             }
         }
-        $errors = $validation->errors('User');
-        $hobbys = Kohana::$config->load('setting.hobby');
-        $view = View::factory('User/Create')
-            ->set('hobbys', $hobbys)
-            ->set('errors', $errors);
-        $this->template->content = $view;
+            $lang = $this->request->param('language');
+            if(isset($lang) and $lang == 'vi')
+            {
+                $errors = $validation->errors('User');
+                $hobbies = Kohana::$config->load('setting.hobby');
+                I18n::lang('vi');
+                $view = View::factory('User/Create')
+                    ->set('hobbies', $hobbies)
+                    ->set('errors', $errors);
+                $this->template->content = $view;
+                $this->template->lang = 'vi';
+            }
+            else {
+                $errors = $validation->errors('User');
+                $hobbies = Kohana::$config->load('setting.hobby');
+                $view = View::factory('User/Create')
+                    ->set('hobbies', $hobbies)
+                    ->set('errors', $errors);
+                $this->template->content = $view;
+                $this->template->lang = 'en';
+            }
     }
     public function action_update()
     {
@@ -56,8 +71,8 @@ class Controller_User extends Controller_Base {
             {
                 $data['username'] = $user->name;
             }
-            $hobbys = Kohana::$config->load('setting.hobby');
-            $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbys', $hobbys);
+            $hobbies = Kohana::$config->load('setting.hobby');
+            $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbies', $hobbies);
             $this->template->content = $view;
         }
     }
