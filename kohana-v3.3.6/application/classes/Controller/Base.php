@@ -19,7 +19,7 @@ abstract class Controller_Base extends Controller_Template {
         }
         // Create View action template with multiple language
         $lang = $this->request->param('language');
-        if((isset($lang)) and  $lang== 'vi')
+        if((isset($lang)) and  $lang== 'vi'  )
         {
             I18n::lang('vi');
             $this->action_template = View::factory($this->action_template);

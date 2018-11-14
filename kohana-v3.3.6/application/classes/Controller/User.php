@@ -72,7 +72,15 @@ class Controller_User extends Controller_Base {
             {
                 $data['username'] = $user->name;
             }
-            $hobbies = Kohana::$config->load('setting.hobby');
+            $lang = $this->request->param('language');
+            if (isset($lang) and $lang == 'vi')
+            {
+                $hobbies = Kohana::message('hobby', 'hobby');
+                I18n::lang('vi');
+                $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbies', $hobbies);
+                $this->template->content = $view;
+            }
+            $hobbies = Kohana::message('hobby', 'hobby');
             $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbies', $hobbies);
             $this->template->content = $view;
         }

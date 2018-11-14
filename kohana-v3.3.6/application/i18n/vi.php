@@ -4,11 +4,11 @@ return array(
     'Home Page'=> 'Trang chủ',
     'Go to user page' => 'Đến trang tài khoản người dùng ',
     //Index User
-    'USER LIST' =>'Danh sách thành viên',
+    'USER LIST' =>'Danh Sách Thành Viên',
     'Update' => 'Cập nhật',
     'Create' => 'Tạo mới',
     // Create User
-    'Create New User'=>'Tạo tài khoản mới',
+    'Create New User'=>'Tạo Tài Khoản Mới',
     'User name:' => 'Tên người dùng:',
     'Email' => 'Email:',
     'Phone number:' => 'Số điện thoại:',
@@ -21,8 +21,8 @@ return array(
     ':field must not be empty' => 'Không được để trống',
     ':field must be an email address' => 'Email chưa đúng cú pháp',
     //hobby
-    'football' => 'Bong da',
-    'tennis' => 'Quan vot',
-    'cooking' => 'Nau An',
-    'listen to music' => 'Nghe nhac'
+    'football' => 'Bóng Đá',
+    'tennis' => 'Quần Vợt',
+    'cooking' => 'Nấu Ăn',
+    'listen to music' => 'Nghe Nhạc'
 );

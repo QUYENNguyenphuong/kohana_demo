@@ -3,7 +3,7 @@
 <a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'en'))) ?>" >Tiếng Anh</a>
 <hr>
 <br>
-<p><?php echo __('Create New User') ?></p>
+<h2><?php echo __('Create New User') ?></h2>
 <br>
 <form method="post" action="">
 <lable><?php echo __('User name:'); ?></lable>
@@ -24,7 +24,7 @@
 <label><?php echo __('Hobby:'); ?></label>
 <select name="hobby" >
     <?php foreach($hobbies as $key => $item): ?>
-            <option name="<?= $key?>" ><?= $item ?></option>
+            <option name="<?= $key?>"><?= $item ?></option>
         <?php endforeach; ?>
 </select>
 <br>

@@ -165,4 +165,3 @@ Route::set('user', '(<language>(/user(-<action>(-<id>))))',
         'controller' => 'user',
         'action' => 'index',
     ));
-
