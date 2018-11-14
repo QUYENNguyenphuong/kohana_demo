@@ -56,6 +56,10 @@ class Controller_User extends Controller_Base {
         $data = array();
         $id = $this->request->param('id');
         $user = ORM::factory('User', $id);
+        $validation = Validation::factory($_POST)
+            ->rule('username', 'not_empty')
+            ->rule('email', 'not_empty')->rule('email', 'email')
+            ->rule('phonenumber', 'not_empty');
         if ( ! $user->loaded())
         {
           throw HTTP_Exception::factory(404, 'User not found!');
@@ -69,7 +73,10 @@ class Controller_User extends Controller_Base {
                 $user->phonenumber = $_POST['phonenumber'];
                 $user->birthday = $_POST['date_birthday'];
                 $user->hobby = $_POST['hobby'];
-                $user->save();
+                if ($validation->check())
+                {
+                    $user->save();
+                }
             }
             if(isset($user->name))
             {
@@ -78,13 +85,21 @@ class Controller_User extends Controller_Base {
             $data['allowed_lang'] = $this->request->param('language');
             if (isset($data['allowed_lang']) and $data['allowed_lang'] == 'vi')
             {
+                $errors = $validation->errors('User');
                 $hobbies = Kohana::message('hobby', 'hobby');
                 I18n::lang('vi');
-                $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbies', $hobbies);
+                $view = View::factory('User/Update', $data)
+                    ->set('user', $user)
+                    ->set('errors', $errors)
+                    ->set('hobbies', $hobbies);
                 $this->template->content = $view;
             }
+            $errors = $validation->errors('User');
             $hobbies = Kohana::message('hobby', 'hobby');
-            $view = View::factory('User/Update', $data)->set('user', $user)->set('hobbies', $hobbies);
+            $view = View::factory('User/Update', $data)
+                ->set('user', $user)
+                ->set('errors', $errors)
+                ->set('hobbies', $hobbies);
             $this->template->content = $view;
         }
     }
