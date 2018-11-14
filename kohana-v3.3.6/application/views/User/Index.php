@@ -1,3 +1,8 @@
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'index', 'language'=>'vi'))) ?>" >Tiếng Việt</a>
+<br>
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'index', 'language'=>'en'))) ?>" >Tiếng Anh</a>
+<hr>
+<br>
 <label><?php echo __('USER LIST') ?></label>
 <?php foreach ($users as $user): ?>
 <h3><?= $user->name ?></h3>

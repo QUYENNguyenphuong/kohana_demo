@@ -1,3 +1,8 @@
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'update', 'language'=>'vi', 'id'=>$user->id))) ?>" >Tiếng Việt</a>
+<br>
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'update', 'language'=>'en', 'id'=>$user->id))) ?>" >Tiếng Anh</a>
+<hr>
+<br>
 <p><?echo __('Hello, :user', array(':user' => $username)); ?> </p>
 <hr>
 <form method="post" action="<?php echo URL::site(Route::get('user')->uri(array('controller'=>'user','action'=>'update','id'=>$user->id))) ?>">

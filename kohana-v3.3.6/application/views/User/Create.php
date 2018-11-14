@@ -1,3 +1,8 @@
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'vi'))) ?>" >Tiếng Việt</a>
+<br>
+<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'en'))) ?>" >Tiếng Anh</a>
+<hr>
+<br>
 <p><?php echo __('Create New User') ?></p>
 <br>
 <form method="post" action="">
