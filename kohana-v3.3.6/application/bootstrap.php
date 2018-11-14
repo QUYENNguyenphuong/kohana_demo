@@ -104,6 +104,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/',
+    'index_file' => ''
 ));
 
 /**
@@ -156,7 +157,7 @@ Route::set('default', '(<language>(/<controller>(/<action>(/<id>))))',
 
 Route::set('user', '(<language>(/user(-<action>(-<id>))))',
     array(
-        'language'=>'(vi|en)',
+        'language'=>'vi|en',
         'action'=>'(create|update)',
     ))
     ->defaults(array(
@@ -164,3 +165,4 @@ Route::set('user', '(<language>(/user(-<action>(-<id>))))',
         'controller' => 'user',
         'action' => 'index',
     ));
+

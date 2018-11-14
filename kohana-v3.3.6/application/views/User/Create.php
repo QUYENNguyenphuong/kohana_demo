@@ -1,4 +1,4 @@
-<a href="<?= URL::site(Route::get('default')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'vi'))) ?>" >Tiếng Việt</a>
+<a href="<?= URL::site(Route::get('default')->uri(array( 'language'=>'vi','controller'=>'user', 'action'=>'create'))) ?>" >Tiếng Việt</a>
 <br>
 <a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'en'))) ?>" >Tiếng Anh</a>
 <hr>
