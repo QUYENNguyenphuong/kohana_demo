@@ -1,4 +1,4 @@
-<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'update', 'language'=>'vi', 'id'=>$user->id))) ?>" >Tiếng Việt</a>
+<a href="<?= URL::site(Route::get('default')->uri(array('controller'=>'user', 'action'=>'update', 'language'=>'vi', 'id'=>$user->id))) ?>" >Tiếng Việt</a>
 <br>
 <a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'update', 'language'=>'en', 'id'=>$user->id))) ?>" >Tiếng Anh</a>
 <hr>
@@ -27,6 +27,6 @@
     <br>
     <input type="submit" name="btn_update" value="<?= __('Update') ?>">
 </form>
-<a href="<?php echo url::site(Route::get('user')->uri(array('controller'=>'user','action'=> 'index'))); ?>"><?= __('Home') ?></a>
+<a href="<?php echo url::site(Route::get('default')->uri(array('controller'=>'user','action'=> 'index', 'language'=>'en'))); ?>"><?= __('Home') ?></a>
 <br>
 <a href="<?php echo url::site(Route::get('user')->uri(array('controller'=>'user','action'=> 'create'))); ?>"><?= __('Create') ?></a>

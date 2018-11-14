@@ -146,7 +146,7 @@ Cookie::$salt = 'foobar';
  */
 Route::set('default', '(<language>(/<controller>(/<action>(/<id>))))',
     array(
-        'language' => 'vi|en',
+        'language' => 'vi',
     ))
     ->defaults(array(
         'language'  => 'en',
@@ -157,7 +157,7 @@ Route::set('default', '(<language>(/<controller>(/<action>(/<id>))))',
 Route::set('user', '(<language>(/user(-<action>(-<id>))))',
     array(
         'language'=>'vi|en',
-        'action'=>'index|create|update',
+        'action'=>'create|update',
     ))
     ->defaults(array(
         'language' =>'en',

@@ -1,4 +1,4 @@
-<a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'vi'))) ?>" >Tiếng Việt</a>
+<a href="<?= URL::site(Route::get('default')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'vi'))) ?>" >Tiếng Việt</a>
 <br>
 <a href="<?= URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'create', 'language'=>'en'))) ?>" >Tiếng Anh</a>
 <hr>
@@ -30,4 +30,4 @@
 <br>
 <input type="submit" name="btn_create" value="<?php echo __('Create'); ?>">
 </form>
-<a href="<?php echo URL::site(Route::get('user')->uri(array('controller'=>'user', 'action'=>'index'))) ?>"> <?= __('Home') ?></a>
+<a href="<?php echo URL::site(Route::get('default')->uri(array('controller'=>'user', 'action'=>'index', 'language'=> 'en'))) ?>"> <?= __('Home') ?></a>
