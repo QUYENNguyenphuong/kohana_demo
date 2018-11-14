@@ -40,10 +40,4 @@
 
 <a href="<?php echo url::site(Route::get('user')->uri(array('controller'=>'user','action'=> 'index', 'language'=>$allowed_lang))); ?>"><?= __('Home') ?></a>
 <br>
-
-<?php if($allowed_lang == 'en'): ?>
-    <a href="<?php echo url::site(Route::get('user')->uri(array('controller'=>'user','action'=> 'create', 'language'=>$allowed_lang))); ?>"><?php echo __('Create') ?></a>
-<?php endif; ?>
-<?php if($allowed_lang == 'vi'): ?>
-    <a href="<?php echo url::site(Route::get('default')->uri(array('controller'=>'user','action'=> 'create', 'language'=>$allowed_lang))); ?>"><?php echo __('Create') ?></a>
-<?php endif; ?>
+<a href="<?php echo url::site(Route::get('user')->uri(array('controller'=>'user','action'=> 'create', 'language'=>$allowed_lang))); ?>"><?php echo __('Create') ?></a>
