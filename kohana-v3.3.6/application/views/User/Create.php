@@ -30,4 +30,4 @@
 <br>
 <input type="submit" name="btn_create" value="<?php echo __('Create'); ?>">
 </form>
-<a href="<?php echo URL::site(Route::get('default')->uri(array('controller'=>'user', 'action'=>'index', 'language'=> 'en'))) ?>"> <?= __('Home') ?></a>
+<a href="<?php echo URL::site(Route::get('default')->uri(array('controller'=>'user', 'action'=>'index', 'language'=> $allowed_lang))) ?>"> <?= __('Home') ?></a>

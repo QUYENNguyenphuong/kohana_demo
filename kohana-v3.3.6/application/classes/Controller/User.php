@@ -1,13 +1,16 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 class Controller_User extends Controller_Base {
+
     public function action_index()
     {
+        $lang['allowed_lang'] = $this->request->param('language');
         $users = ORM::factory('User')->find_all();
-        $view = View::factory('User/Index')->set('users', $users);
+        $view = View::factory('User/Index', $lang)->set('users', $users);
         $this->template->content = $view;
     }
     public function action_create()
     {
+        $lang['allowed_lang'] = $this->request->param('language');
         $user = ORM::factory('User');
         $validation = Validation::factory($_POST)
                 ->rule('username', 'not_empty')
@@ -25,23 +28,23 @@ class Controller_User extends Controller_Base {
                 $user->save();
             }
         }
-            $lang = $this->request->param('language');
-            if(isset($lang) and $lang == 'vi')
+            if(isset($lang) and $lang['allowed_lang'] == 'vi')
             {
                 $errors = $validation->errors('User');
                 //$hobbies = Kohana::$config->load('setting.hobby');
                 $hobbies = Kohana::message('hobby', 'hobby');
                 I18n::lang('vi');
-                $view = View::factory('User/Create')
+                $view = View::factory('User/Create', $lang)
                     ->set('hobbies', $hobbies)
                     ->set('errors', $errors);
                 $this->template->content = $view;
                 $this->template->lang = 'vi';
             }
-            else {
+            else
+            {
                 $errors = $validation->errors('User');
                 $hobbies = Kohana::message('hobby', 'hobby');
-                $view = View::factory('User/Create')
+                $view = View::factory('User/Create', $lang)
                     ->set('hobbies', $hobbies)
                     ->set('errors', $errors);
                 $this->template->content = $view;
@@ -72,8 +75,8 @@ class Controller_User extends Controller_Base {
             {
                 $data['username'] = $user->name;
             }
-            $lang = $this->request->param('language');
-            if (isset($lang) and $lang == 'vi')
+            $data['allowed_lang'] = $this->request->param('language');
+            if (isset($data['allowed_lang']) and $data['allowed_lang'] == 'vi')
             {
                 $hobbies = Kohana::message('hobby', 'hobby');
                 I18n::lang('vi');
