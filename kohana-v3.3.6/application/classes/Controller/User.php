@@ -29,7 +29,7 @@ class Controller_User extends Controller_Base {
             if(isset($lang) and $lang == 'vi')
             {
                 $errors = $validation->errors('User');
-                $hobbies = Kohana::$config->load('setting.hobby');
+                $hobbies = Kohana::message('hobby', 'hobby');
                 I18n::lang('vi');
                 $view = View::factory('User/Create')
                     ->set('hobbies', $hobbies)
@@ -39,7 +39,7 @@ class Controller_User extends Controller_Base {
             }
             else {
                 $errors = $validation->errors('User');
-                $hobbies = Kohana::$config->load('setting.hobby');
+                $hobbies = Kohana::message('hobby', 'hobby');
                 $view = View::factory('User/Create')
                     ->set('hobbies', $hobbies)
                     ->set('errors', $errors);

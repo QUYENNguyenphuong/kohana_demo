@@ -20,9 +20,9 @@ return array(
     // Message error
     ':field must not be empty' => 'Không được để trống',
     ':field must be an email address' => 'Email chưa đúng cú pháp',
-    // Hobby fields
-        'football'=> 'Bóng đá',
-        'tenis'=> 'Quần vợt',
-        'cooking'=>'Nấu ăn',
-        'listening to music'=>'Nghe nhạc',
+    //hobby
+    'football' => 'Bong da',
+    'tennis' => 'Quan vot',
+    'cooking' => 'Nau An',
+    'listen to music' => 'Nghe nhac'
 );

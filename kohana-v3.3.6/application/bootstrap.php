@@ -156,8 +156,8 @@ Route::set('default', '(<language>(/<controller>(/<action>(/<id>))))',
 
 Route::set('user', '(<language>(/user(-<action>(-<id>))))',
     array(
-        'language'=>'vi|en',
-        'action'=>'create|update',
+        'language'=>'(vi|en)',
+        'action'=>'(create|update)',
     ))
     ->defaults(array(
         'language' =>'en',

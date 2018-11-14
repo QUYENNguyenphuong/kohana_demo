@@ -4,6 +4,6 @@ return array(
             '1'=> 'football',
             '2'=>'tenis',
             '3'=>'cooking',
-            '4'=>'listening to music'
+            '4'=>'listen to music'
          )
 );
